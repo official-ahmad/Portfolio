@@ -1,0 +1,441 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ahmad Ali — Full‑Stack Developer (MERN)</title>
+    <meta name="description" content="Ahmad Ali — Full‑Stack (MERN) developer. Portfolio, projects, skills, and contact." />
+    <meta property="og:title" content="Ahmad Ali — Full‑Stack Developer" />
+    <meta property="og:description" content="Building fast, modern web apps with MongoDB, Express, React, and Node." />
+    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#0ea5e9" />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1' y1='0' y2='1'%3E%3Cstop stop-color='%230ea5e9'/%3E%3Cstop offset='1' stop-color='%23636af2'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='50' cy='50' r='48' fill='url(%23g)'/%3E%3Ctext x='50' y='60' text-anchor='middle' font-size='48' font-family='Segoe UI, Roboto, Arial' fill='white'%3EA%3C/text%3E%3C/svg%3E" />
+    <style>
+      /* ---- CSS Reset (trimmed) ---- */
+      *,*::before,*::after{box-sizing;:border-box}html{line-height:1.5;-webkit-text-size-adjust:100%}body{margin:0}img,svg,video,canvas{display:block;max-width:100%}button,input,textarea,select{font:inherit}
+      :root{
+        --bg: #0b1020;           /* dark base */
+        --bg-soft: #0f172a;      /* card bg */
+        --text: #e5e7eb;         /* text */
+        --muted: #94a3b8;        /* muted text */
+        --brand: #0ea5e9;        /* cyan */
+        --brand-2: #6366f1;      /* indigo */
+        --ok: #22c55e;           /* green */
+        --warn: #f59e0b;         /* amber */
+        --danger: #ef4444;       /* red */
+        --card: rgba(255,255,255,0.04);
+        --border: rgba(148,163,184,.25);
+        --shadow: 0 10px 30px rgba(2,6,23,.35);
+      }
+      :root.light{
+        --bg: #f8fafc;
+        --bg-soft: #ffffff;
+        --text: #0f172a;
+        --muted: #475569;
+        --card: rgba(15,23,42,0.04);
+        --border: rgba(15,23,42,.12);
+        --shadow: 0 10px 30px rgba(2,6,23,.08);
+      }
+      body{
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+        background: radial-gradient(1200px 800px at 80% -10%, rgba(14,165,233,.15), transparent 60%),
+                    radial-gradient(900px 600px at -10% 10%, rgba(99,102,241,.15), transparent 40%),
+                    var(--bg);
+        color: var(--text);
+        min-height: 100vh;
+      }
+      .container{width:min(1100px, 92%); margin-inline:auto}
+      a{color:inherit; text-decoration:none}
+      .btn{display:inline-flex; align-items:center; gap:.6rem; border:1px solid var(--border); background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,0)); padding:.75rem 1rem; border-radius:14px; box-shadow:var(--shadow); transition:.2s transform, .2s opacity}
+      .btn:hover{transform:translateY(-1px)}
+      .btn.primary{border-color:transparent; background:linear-gradient(90deg, var(--brand), var(--brand-2)); color:white}
+      .btn.ghost{background:transparent}
+      .tag{display:inline-block; padding:.35rem .6rem; border:1px solid var(--border); border-radius:999px; font-size:.8rem; color:var(--muted); background:var(--card)}
+      .glass{backdrop-filter:saturate(180%) blur(12px); -webkit-backdrop-filter:saturate(180%) blur(12px)}
+      header.nav{position:sticky; top:0; z-index:50; border-bottom:1px solid var(--border); background:color-mix(in oklab, var(--bg) 80%, transparent);}
+      .nav-inner{display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:.8rem 0}
+      .brand{display:flex; align-items:center; gap:.75rem}
+      .brand .logo{width:36px; height:36px; border-radius:12px; background:conic-gradient(from 180deg, var(--brand), var(--brand-2)); display:grid; place-items:center; color:white; font-weight:700}
+      nav ul{display:flex; gap:1rem; list-style:none; padding:0; margin:0}
+      nav a{padding:.55rem .8rem; border-radius:10px; color:var(--muted)}
+      nav a.active, nav a:hover{color:var(--text); background:var(--card)}
+      .theme-toggle{border:1px solid var(--border); background:var(--card); width:44px; height:44px; display:grid; place-items:center; border-radius:12px; cursor:pointer}
+      .menu-toggle{display:none}
+
+      /* Hero */
+      .hero{display:grid; grid-template-columns: 1.2fr .8fr; gap:2rem; align-items:center; padding:4rem 0}
+      .hero h1{font-size: clamp(2rem, 3.4vw + 1rem, 3.25rem); line-height:1.05; margin:0}
+      .hero p{color:var(--muted); font-size:1.05rem}
+      .hero .actions{display:flex; flex-wrap:wrap; gap:.8rem; margin-top:1.2rem}
+      .meta{display:flex; gap:.6rem; flex-wrap:wrap; margin:.9rem 0}
+      .hero-card{border:1px solid var(--border); background:var(--bg-soft); padding:1.2rem; border-radius:18px; box-shadow:var(--shadow)}
+      .hero-blob{aspect-ratio:1/1; border-radius:22px; border:1px solid var(--border); background:radial-gradient(120px 120px at 70% 35%, rgba(14,165,233,.32), transparent 60%), radial-gradient(120px 120px at 30% 70%, rgba(99,102,241,.34), transparent 62%), linear-gradient(180deg, color-mix(in oklab, var(--bg) 86%, transparent), color-mix(in oklab, var(--bg-soft) 86%, transparent)); display:grid; place-items:center}
+
+      /* Sections */
+      section{padding:3.2rem 0}
+      .section-title{display:flex; align-items:center; gap:.8rem; margin-bottom:1.4rem}
+      .section-title h2{margin:0; font-size:1.6rem}
+      .grid{display:grid; gap:1rem}
+      .grid.cards{grid-template-columns: repeat(12, 1fr)}
+      .card{grid-column: span 4; border:1px solid var(--border); background:var(--bg-soft); padding:1rem; border-radius:16px; transition:.25s transform; box-shadow:var(--shadow)}
+      .card:hover{transform:translateY(-2px)}
+      .card .thumb{border-radius:12px; overflow:hidden; aspect-ratio:16/9; border:1px solid var(--border); background:linear-gradient(120deg, rgba(14,165,233,.25), rgba(99,102,241,.25))}
+      .card h3{margin:.7rem 0 .2rem}
+      .card p{margin:.2rem 0 .6rem; color:var(--muted)}
+      .card .badges{display:flex; flex-wrap:wrap; gap:.4rem}
+
+      /* Skills */
+      .skills{display:grid; grid-template-columns: repeat(12, 1fr); gap:1rem}
+      .skill{grid-column: span 6; border:1px solid var(--border); background:var(--bg-soft); padding:1rem; border-radius:16px}
+      .meter{height:10px; background:var(--card); border-radius:999px; overflow:hidden; border:1px solid var(--border)}
+      .meter > i{display:block; height:100%; background:linear-gradient(90deg, var(--brand), var(--brand-2))}
+
+      /* Contact */
+      .contact{display:grid; grid-template-columns: 1fr 1fr; gap:1rem}
+      .field{display:flex; flex-direction:column; gap:.4rem}
+      .input{border:1px solid var(--border); background:var(--bg); border-radius:12px; padding:.8rem 1rem; color:var(--text)}
+      textarea.input{min-height:130px; resize:vertical}
+      .note{font-size:.9rem; color:var(--muted)}
+
+      footer{border-top:1px solid var(--border); padding:1.4rem 0; color:var(--muted)}
+
+      /* Utilities */
+      .row{display:flex; gap:.8rem; align-items:center}
+      .spacer{height:1px; background:var(--border); margin:1.2rem 0}
+      .hidden{display:none}
+      .reveal{opacity:0; transform: translateY(12px); transition: .6s ease}
+      .reveal.active{opacity:1; transform:none}
+
+      /* Responsive */
+      @media (max-width: 900px){
+        .hero{grid-template-columns: 1fr; padding:2.4rem 0}
+        .contact{grid-template-columns: 1fr}
+      }
+      @media (max-width: 760px){
+        .card{grid-column: span 6}
+        .skill{grid-column: span 12}
+        nav ul{display:none}
+        .menu-toggle{display:grid; place-items:center; border:1px solid var(--border); background:var(--card); width:44px; height:44px; border-radius:12px}
+        .mobile-nav{position:fixed; inset:64px 16px auto; border:1px solid var(--border); background:var(--bg-soft); padding:.6rem; border-radius:14px; box-shadow:var(--shadow)}
+        .mobile-nav a{display:block; padding:.7rem; border-radius:10px}
+        .mobile-nav a:hover{background:var(--card)}
+      }
+      @media (max-width: 520px){
+        .card{grid-column: span 12}
+      }
+    </style>
+  </head>
+  <body>
+    <a class="hidden" href="#main" id="skip">Skip to content</a>
+    <header class="nav glass">
+      <div class="container nav-inner">
+        <div class="brand">
+          <div class="logo" aria-hidden="true">A</div>
+          <div>
+            <strong>Ahmad Ali</strong><br />
+            <small class="tag">Full‑Stack (MERN)</small>
+          </div>
+        </div>
+        <nav aria-label="Primary">
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="row">
+          <button class="theme-toggle" id="themeBtn" aria-label="Toggle theme" title="Toggle theme">🌙</button>
+          <button class="menu-toggle" id="menuBtn" aria-label="Open menu">☰</button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main" class="container">
+      <section class="hero">
+        <div class="hero-copy reveal">
+          <span class="tag">Hello! I'm Ahmad 👋</span>
+          <h1>Full‑Stack Developer crafting clean, fast, and modern web apps.</h1>
+          <p>I build products with <strong>MongoDB</strong>, <strong>Express</strong>, <strong>React</strong>, and <strong>Node.js</strong>. Passionate about performance, accessibility, and delightful UX.</p>
+          <div class="meta">
+            <span class="tag">Open to Internships</span>
+            <span class="tag">Remote / On‑site</span>
+            <span class="tag">Based in Pakistan</span>
+          </div>
+          <div class="actions">
+            <a class="btn primary" href="#projects">View Projects</a>
+            <a class="btn ghost" href="#contact">Contact Me</a>
+            <a class="btn" href="./Ahmad-Ali-CV.pdf" download>Download CV</a>
+          </div>
+        </div>
+        <div class="hero-visual reveal">
+          <div class="hero-blob hero-card">
+            <svg width="220" height="220" viewBox="0 0 220 220" role="img" aria-label="Decorative graphic">
+              <defs>
+                <linearGradient id="lg" x1="0" x2="1" y1="0" y2="1">
+                  <stop offset="0%" stop-color="#0ea5e9"/>
+                  <stop offset="100%" stop-color="#6366f1"/>
+                </linearGradient>
+              </defs>
+              <circle cx="110" cy="110" r="96" fill="none" stroke="url(#lg)" stroke-width="6"/>
+              <g>
+                <circle cx="80" cy="85" r="10" fill="#0ea5e9"/>
+                <circle cx="150" cy="70" r="6" fill="#38bdf8"/>
+                <circle cx="145" cy="150" r="8" fill="#818cf8"/>
+                <circle cx="70" cy="145" r="5" fill="#22c55e"/>
+              </g>
+              <path d="M40 120 Q110 40 180 120" fill="none" stroke="url(#lg)" stroke-width="4"/>
+              <path d="M40 120 Q110 200 180 120" fill="none" stroke="url(#lg)" stroke-width="4"/>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <section id="about">
+        <div class="section-title reveal">
+          <span class="tag">About</span>
+          <h2>Who am I?</h2>
+        </div>
+        <div class="hero-card reveal">
+          <p>I'm Ahmad Ali, a Full‑Stack developer focused on the <strong>MERN</strong> stack. I enjoy turning ideas into polished, scalable products. When I'm not coding, I'm learning about system design and improving performance, accessibility, and developer experience.</p>
+          <div class="spacer"></div>
+          <div class="row" aria-label="Quick facts">
+            <span class="tag">JavaScript First</span>
+            <span class="tag">Learning DevOps Basics</span>
+            <span class="tag">Love Clean UI</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects">
+        <div class="section-title reveal">
+          <span class="tag">Projects</span>
+          <h2>Featured Work</h2>
+        </div>
+        <div class="grid cards">
+          <article class="card reveal">
+            <div class="thumb" aria-hidden="true">
+              <svg viewBox="0 0 800 450" preserveAspectRatio="none">
+                <defs>
+                  <linearGradient id="p1" x1="0" x2="1" y1="0" y2="1">
+                    <stop offset="0%" stop-color="#0ea5e9"/>
+                    <stop offset="100%" stop-color="#6366f1"/>
+                  </linearGradient>
+                </defs>
+                <rect width="800" height="450" fill="url(#p1)" opacity=".25" />
+                <g fill="none" stroke="url(#p1)" stroke-width="6" opacity=".9">
+                  <rect x="60" y="60" width="680" height="220" rx="16"/>
+                  <rect x="60" y="300" width="420" height="80" rx="12"/>
+                </g>
+              </svg>
+            </div>
+            <h3>MERN E‑commerce Store</h3>
+            <p>Full‑stack shop with product catalog, cart, checkout, and admin dashboard.</p>
+            <div class="badges">
+              <span class="tag">React</span><span class="tag">Node</span><span class="tag">Express</span><span class="tag">MongoDB</span>
+            </div>
+          </article>
+
+          <article class="card reveal">
+            <div class="thumb" aria-hidden="true">
+              <svg viewBox="0 0 800 450" preserveAspectRatio="none">
+                <defs>
+                  <linearGradient id="p2" x1="0" x2="1" y1="0" y2="1">
+                    <stop offset="0%" stop-color="#22c55e"/>
+                    <stop offset="100%" stop-color="#0ea5e9"/>
+                  </linearGradient>
+                </defs>
+                <rect width="800" height="450" fill="url(#p2)" opacity=".25" />
+                <g fill="none" stroke="url(#p2)" stroke-width="6" opacity=".9">
+                  <rect x="80" y="90" width="640" height="140" rx="16"/>
+                  <rect x="80" y="260" width="300" height="40" rx="10"/>
+                </g>
+              </svg>
+            </div>
+            <h3>Realtime Chat App</h3>
+            <p>WebSocket‑powered chat with auth, rooms, and message history.</p>
+            <div class="badges">
+              <span class="tag">React</span><span class="tag">Node</span><span class="tag">Socket.io</span>
+            </div>
+          </article>
+
+          <article class="card reveal">
+            <div class="thumb" aria-hidden="true">
+              <svg viewBox="0 0 800 450" preserveAspectRatio="none">
+                <defs>
+                  <linearGradient id="p3" x1="0" x2="1" y1="0" y2="1">
+                    <stop offset="0%" stop-color="#f59e0b"/>
+                    <stop offset="100%" stop-color="#6366f1"/>
+                  </linearGradient>
+                </defs>
+                <rect width="800" height="450" fill="url(#p3)" opacity=".25" />
+                <g fill="none" stroke="url(#p3)" stroke-width="6" opacity=".9">
+                  <rect x="80" y="120" width="640" height="200" rx="16"/>
+                  <circle cx="200" cy="220" r="36"/>
+                  <circle cx="300" cy="220" r="36"/>
+                  <circle cx="400" cy="220" r="36"/>
+                </g>
+              </svg>
+            </div>
+            <h3>Task Manager API</h3>
+            <p>RESTful API with JWT auth, role‑based access, and Swagger docs.</p>
+            <div class="badges">
+              <span class="tag">Node</span><span class="tag">Express</span><span class="tag">MongoDB</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="skills">
+        <div class="section-title reveal">
+          <span class="tag">Skills</span>
+          <h2>What I use</h2>
+        </div>
+        <div class="skills">
+          <div class="skill reveal">
+            <div class="row" style="justify-content:space-between">
+              <strong>Frontend</strong><span class="tag">React • HTML • CSS • JS</span>
+            </div>
+            <div class="meter" aria-label="Frontend proficiency"><i style="width:82%"></i></div>
+          </div>
+          <div class="skill reveal">
+            <div class="row" style="justify-content:space-between">
+              <strong>Backend</strong><span class="tag">Node • Express • REST</span>
+            </div>
+            <div class="meter" aria-label="Backend proficiency"><i style="width:76%"></i></div>
+          </div>
+          <div class="skill reveal">
+            <div class="row" style="justify-content:space-between">
+              <strong>Database</strong><span class="tag">MongoDB • Mongoose</span>
+            </div>
+            <div class="meter" aria-label="Database proficiency"><i style="width:70%"></i></div>
+          </div>
+          <div class="skill reveal">
+            <div class="row" style="justify-content:space-between">
+              <strong>Tools</strong><span class="tag">Git • GitHub • VS Code</span>
+            </div>
+            <div class="meter" aria-label="Tools proficiency"><i style="width:78%"></i></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <div class="section-title reveal">
+          <span class="tag">Contact</span>
+          <h2>Let's work together</h2>
+        </div>
+        <div class="contact">
+          <form class="hero-card reveal" id="contactForm">
+            <div class="field">
+              <label for="name">Name</label>
+              <input id="name" class="input" name="name" placeholder="Your name" required />
+            </div>
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" class="input" type="email" name="email" placeholder="you@example.com" required />
+            </div>
+            <div class="field">
+              <label for="msg">Message</label>
+              <textarea id="msg" class="input" name="message" placeholder="Tell me about your project" required></textarea>
+            </div>
+            <div class="row" style="justify-content:space-between; margin-top:.6rem">
+              <span class="note">I'll get back within 24–48 hours.</span>
+              <button class="btn primary" type="submit">Send Message</button>
+            </div>
+          </form>
+          <aside class="hero-card reveal">
+            <h3>Contact Info</h3>
+            <p class="note">Prefer email? Reach out directly.</p>
+            <div class="spacer"></div>
+            <div class="row"><span class="tag">Email</span> <a href="mailto:hello.ahmad.dev@gmail.com">hello.ahmad.dev@gmail.com</a></div>
+            <div class="row"><span class="tag">GitHub</span> <a href="https://github.com/" target="_blank" rel="noopener">github.com/ahmadali</a></div>
+            <div class="row"><span class="tag">LinkedIn</span> <a href="https://linkedin.com/" target="_blank" rel="noopener">linkedin.com/in/ahmadali</a></div>
+          </aside>
+        </div>
+      </section>
+
+      <section aria-label="CTA">
+        <div class="hero-card reveal" style="display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap">
+          <div>
+            <strong>Have a project in mind?</strong>
+            <p class="note" style="margin:.2rem 0 0">I'm open to internships and freelance work.</p>
+          </div>
+          <a class="btn primary" href="#contact">Start a conversation</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container row" style="justify-content:space-between; flex-wrap:wrap">
+        <span>© <span id="year"></span> Ahmad Ali</span>
+        <span class="note">Built with HTML • CSS • JS</span>
+      </div>
+    </footer>
+
+    <template id="toast">
+      <div style="position:fixed; inset:auto 16px 16px auto; z-index:60; border:1px solid var(--border); background:var(--bg-soft); color:var(--text); padding:.8rem 1rem; border-radius:12px; box-shadow:var(--shadow)">
+        <strong>Message sent!</strong><br><span class="note">Thanks for reaching out. I'll reply soon.</span>
+      </div>
+    </template>
+
+    <div id="mobileMenu" class="mobile-nav hidden">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+    <script>
+      // Persisted theme
+      const root = document.documentElement;
+      const saved = localStorage.getItem('theme');
+      if(saved === 'light') root.classList.add('light');
+
+      // Toggle theme
+      document.getElementById('themeBtn').addEventListener('click', () => {
+        root.classList.toggle('light');
+        localStorage.setItem('theme', root.classList.contains('light') ? 'light' : 'dark');
+      });
+
+      // Mobile menu
+      const menuBtn = document.getElementById('menuBtn');
+      const mobileMenu = document.getElementById('mobileMenu');
+      menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+      mobileMenu.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+
+      // Active nav link on scroll
+      const links = Array.from(document.querySelectorAll('header nav a'));
+      const sections = links.map(a => document.querySelector(a.getAttribute('href')));
+      const active = () => {
+        const y = window.scrollY + 120;
+        let idx = 0;
+        sections.forEach((sec, i) => { if(sec && sec.offsetTop <= y) idx = i; });
+        links.forEach((a,i)=> a.classList.toggle('active', i === idx));
+      };
+      window.addEventListener('scroll', active, {passive:true});
+      active();
+
+      // Reveal on view
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('active'); io.unobserve(e.target);} });
+      }, {threshold:.2});
+      document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+      // Footer year
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      // Fake submit
+      const form = document.getElementById('contactForm');
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const t = document.getElementById('toast').content.cloneNode(true);
+        document.body.appendChild(t);
+        form.reset();
+        setTimeout(()=>{
+          const el = document.querySelector('body > div[style*="position:fixed"');
+          if(el) el.remove();
+        }, 2600);
+      });
+    </script>
+  </body>
+</html>
