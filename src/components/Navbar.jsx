@@ -1,17 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import ThemeSwitch from "./ThemeSwitch";
 
-const Navbar = () => {
-  const [isLight, setIsLight] = useState(false);
-
-  // Toggle the 'light' class on the HTML tag
-  useEffect(() => {
-    if (isLight) {
-      document.documentElement.classList.add("light");
-    } else {
-      document.documentElement.classList.remove("light");
-    }
-  }, [isLight]);
-
+const Navbar = ({ isLight, setIsLight }) => {
   return (
     <header className="nav glass">
       <div className="container nav-inner">
@@ -39,9 +29,7 @@ const Navbar = () => {
             </li>
           </ul>
         </nav>
-        <button className="theme-toggle" onClick={() => setIsLight(!isLight)}>
-          {isLight ? "🌙" : "☀️"}
-        </button>
+        <ThemeSwitch isLight={isLight} setIsLight={setIsLight} />
       </div>
     </header>
   );

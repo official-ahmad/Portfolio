@@ -1,33 +1,117 @@
 import React from "react";
 
 const ProjectCard = ({ project }) => {
-  // Safety check: if project wasn't passed, don't render anything
   if (!project) return null;
 
   return (
-    <article className="card reveal active">
-      <div className="thumb" aria-hidden="true">
-        {/* You can add an image or SVG here later */}
-        <div
-          style={{
-            height: "100%",
-            background:
-              "linear-gradient(120deg, rgba(14,165,233,.25), rgba(99,102,241,.25))",
-          }}
-        ></div>
+    <article
+      className="card reveal"
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        height: "100%",
+        boxSizing: "border-box",
+        padding: "1.5rem",
+        background: "#111827",
+        borderRadius: "20px",
+        border: "1px solid rgba(255, 255, 255, 0.05)",
+        overflow: "hidden",
+      }}
+    >
+      {/* 1. IMAGE SECTION */}
+      <div
+        className="thumb"
+        style={{
+          overflow: "hidden",
+          borderRadius: "12px",
+          marginBottom: "1.5rem",
+          height: "180px",
+          flexShrink: 0,
+          background: "linear-gradient(145deg, #1e293b, #0f172a)",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          border: "1px solid rgba(255, 255, 255, 0.08)",
+        }}
+      >
+        {project.image ? (
+          <img
+            src={project.image}
+            alt={project.title}
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              objectPosition: "top",
+              display: "block",
+            }}
+          />
+        ) : (
+          <div style={{ fontSize: "3rem" }}>🚀</div>
+        )}
       </div>
 
-      <h3>{project.title}</h3>
-      <p>{project.desc}</p>
+      {/* 2. CONTENT SECTION */}
+      <div style={{ flex: "1 0 auto" }}>
+        <h3
+          style={{
+            marginBottom: "0.75rem",
+            color: "var(--text)",
+            fontSize: "1.2rem",
+          }}
+        >
+          {project.title}
+        </h3>
+        <p
+          style={{
+            fontSize: "0.9rem",
+            lineHeight: "1.6",
+            color: "var(--muted)",
+            marginBottom: "1.25rem",
+          }}
+        >
+          {project.desc}
+        </p>
+      </div>
 
-      <div className="badges">
-        {/* The Safety Check: Only map if tags exists */}
+      {/* 3. BADGES SECTION */}
+      <div
+        className="badges"
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          gap: "0.5rem",
+          marginBottom: "2rem",
+        }}
+      >
         {project.tags &&
           project.tags.map((tag, index) => (
-            <span key={index} className="tag">
+            <span
+              key={index}
+              className="tag"
+              style={{
+                fontSize: "0.7rem",
+                padding: "4px 10px",
+                borderRadius: "50px",
+                background: "rgba(255,255,255,0.05)",
+                border: "1px solid rgba(255,255,255,0.1)",
+              }}
+            >
               {tag}
             </span>
           ))}
+      </div>
+
+      {/* 4. THE NEW ANIMATED BUTTON */}
+      <div style={{ marginTop: "auto", width: "100%" }}>
+        <a
+          href={project.link || "#"}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="project-button"
+        >
+          View Project
+        </a>
       </div>
     </article>
   );
