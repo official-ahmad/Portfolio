@@ -1,26 +1,26 @@
 export const PROJECTS = [
   {
     title: "MERN E‑commerce Store",
-    desc: "A full-stack commerce engine that synchronizes real-time product data using asynchronous API fetching. Built with a robust MERN architecture.",
+    desc: "A full-stack commerce engine that synchronizes real-time product data using asynchronous API fetching.",
     tags: ["React", "Node", "Express", "MongoDB"],
     category: "APIs",
-    image: "/public/daraz.png",
+    image: "/daraz.png",
     link: "https://daraz-phi.vercel.app/",
   },
   {
     title: "Rental Property Management",
-    desc: "A full-stack rental management system built to handle property listings, tenant records, lease management, and secure payment tracking with a scalable and user-friendly architecture.",
+    desc: "A full-stack rental management system built to handle property listings and tenant records.",
     tags: ["React", "Node", "Express", "MongoDB"],
     category: "Full Stack",
-    image: "/public/rental.png",
+    image: "/rental.png",
     link: "https://rental-management-front-end.vercel.app/",
   },
   {
     title: "News API",
-    desc: "A RESTful News API that aggregates real-time headlines from multiple sources and searchable news data for modern applications.",
+    desc: "A RESTful News API that aggregates real-time headlines from multiple sources.",
     tags: ["Node", "Express", "MongoDB"],
     category: "APIs",
-    image: "/public/news.png",
+    image: "/news.png",
     link: "https://news-api-gray.vercel.app/",
   },
   {
@@ -28,27 +28,28 @@ export const PROJECTS = [
     desc: "A sleek, dark-themed responsive portfolio built with modern CSS.",
     tags: ["HTML", "CSS", "JS"],
     category: "Templates",
-    image: "/public/videograph.png",
+    image: "/videograph.png",
     link: "https://react-videograph.vercel.app/",
   },
   {
     title: "Acme Blog Template",
-    desc: "A minimalist blog template with a focus on readability and user experience, built using modern web technologies.",
+    desc: "A minimalist blog template with a focus on readability.",
     tags: ["JS", "HTML", "CSS", "React"],
     category: "Templates",
-    image: "/public/acme.png",
+    image: "/acme.png",
     link: "https://acme-three-blue.vercel.app/",
   },
   {
     title: "Imagine Business Template",
-    desc: "A professional business landing page template designed for startups and agencies, featuring a clean layout and responsive design.",
+    desc: "A professional business landing page template designed for startups.",
     tags: ["JS", "HTML", "CSS", "React"],
     category: "Templates",
-    image: "/public/imagine.png",
+    image: "/imagine.png",
     link: "https://imagine-repo.vercel.app/",
   },
 ];
 
+// ENSURE THIS PART IS AT THE BOTTOM
 export const SKILLS = [
   { name: "Frontend", tags: "React • HTML • CSS • JS", level: "92%" },
   { name: "Backend", tags: "Node • Express • REST", level: "78%" },
