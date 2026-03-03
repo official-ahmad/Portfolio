@@ -12,9 +12,9 @@ const ProjectCard = ({ project }) => {
         height: "100%",
         boxSizing: "border-box",
         padding: "1.5rem",
-        background: "#111827",
+        background: "var(--bg-soft)",
         borderRadius: "20px",
-        border: "1px solid rgba(255, 255, 255, 0.05)",
+        border: "1px solid var(--border)",
         overflow: "hidden",
       }}
     >
@@ -27,11 +27,11 @@ const ProjectCard = ({ project }) => {
           marginBottom: "1.5rem",
           height: "180px",
           flexShrink: 0,
-          background: "linear-gradient(145deg, #1e293b, #0f172a)",
+          background: "linear-gradient(145deg, var(--bg-soft), var(--bg))",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          border: "1px solid rgba(255, 255, 255, 0.08)",
+          border: "1px solid var(--border)",
         }}
       >
         {project.image ? (
@@ -93,8 +93,8 @@ const ProjectCard = ({ project }) => {
                 fontSize: "0.7rem",
                 padding: "4px 10px",
                 borderRadius: "50px",
-                background: "rgba(255,255,255,0.05)",
-                border: "1px solid rgba(255,255,255,0.1)",
+                background: "var(--card)",
+                border: "1px solid var(--border)",
               }}
             >
               {tag}

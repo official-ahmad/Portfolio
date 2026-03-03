@@ -14,10 +14,10 @@ const Hero = () => {
           <strong>Node.js</strong>. Passionate about performance, accessibility,
           and delightful UX.
         </p>
-        <div class="meta">
-          <span class="tag">Open to Internships</span>
-          <span class="tag">Remote / On‑site</span>
-          <span class="tag">Based in Pakistan</span>
+        <div className="meta">
+          <span className="tag">Open to Internships</span>
+          <span className="tag">Remote / On‑site</span>
+          <span className="tag">Based in Pakistan</span>
         </div>
         <div className="actions">
           <a className="btn primary" href="#projects">

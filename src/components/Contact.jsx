@@ -35,7 +35,7 @@ const Contact = () => {
           style={{
             padding: "2rem",
             borderRadius: "20px",
-            background: "#111827",
+            background: "var(--bg-soft)",
           }}
         >
           <div className="field" style={{ marginBottom: "1.5rem" }}>
@@ -93,7 +93,7 @@ const Contact = () => {
           style={{
             padding: "2rem",
             borderRadius: "20px",
-            background: "#111827",
+            background: "var(--bg-soft)",
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
@@ -103,7 +103,7 @@ const Contact = () => {
           <h3 style={{ fontSize: "1.5rem", marginBottom: "1rem" }}>
             Get in Touch
           </h3>
-          <p style={{ color: "#94a3b8", marginBottom: "1rem" }}>
+          <p style={{ color: "var(--muted)", marginBottom: "1rem" }}>
             Turning ideas into high-performance digital solutions. Open to
             collaboration on innovative web applications and scalable software
             systems.
@@ -115,7 +115,7 @@ const Contact = () => {
             rel="noreferrer"
             className="email-link"
             style={{
-              color: "#2c9caf",
+              color: "var(--brand)",
               fontSize: "1.2rem",
               fontWeight: "bold",
               textDecoration: "none",

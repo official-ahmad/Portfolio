@@ -46,7 +46,7 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.5rem 1rem;
-  background: rgba(255, 255, 255, 0.03);
+  background: var(--card);
   border-radius: 10px;
   border: 1px solid var(--border);
 }
@@ -66,8 +66,8 @@
   padding: 1.5rem;
   border-radius: 12px;
   border-left: 4px solid var(--brand);
-  background: rgba(255, 255, 255, 0.03);
-  transition: transform 0.3s ease;
+  background: var(--card);
+  transition: transform 0.3s ease, background-color 0.4s ease;
 }
 
 .hero-card:hover {

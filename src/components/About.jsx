@@ -1,5 +1,5 @@
 import React from "react";
-// import './About.css';
+import "./About.css";
 const About = () => {
   return (
     <section id="about" className="reveal">
@@ -8,14 +8,7 @@ const About = () => {
         <h2>About Me</h2>
       </div>
 
-      <div
-        className="grid"
-        style={{
-          gridTemplateColumns: "1fr 1fr",
-          gap: "3rem",
-          alignItems: "start",
-        }}
-      >
+      <div className="about-grid">
         <div className="about-text">
           <p
             style={{
@@ -24,7 +17,7 @@ const About = () => {
               flexDirection: "column",
               justifyContent: "center",
               padding: "2rem",
-              background: "rgba(255, 255, 255, 0.03)",
+              background: "var(--card)",
               borderRadius: "22px",
               border: "1px solid var(--border)",
               fontSize: "1.1rem",
