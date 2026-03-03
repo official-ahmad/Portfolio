@@ -1,7 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import ThemeSwitch from "./ThemeSwitch";
 
-const Navbar = ({ isLight, setIsLight }) => {
+const NAV_LINKS = [
+  { href: "#about", label: "About" },
+  { href: "#projects", label: "Projects" },
+  { href: "#skills", label: "Skills" },
+  { href: "#contact", label: "Contact" },
+];
+
+const Navbar = ({ isLight, setIsLight, activeSection }) => {
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+  const handleLinkClick = () => setMobileOpen(false);
+
   return (
     <header className="nav glass">
       <div className="container nav-inner">
@@ -13,24 +24,58 @@ const Navbar = ({ isLight, setIsLight }) => {
             <small className="tag">Full‑Stack (MERN)</small>
           </div>
         </div>
+
+        {/* Desktop nav */}
         <nav>
           <ul>
-            <li>
-              <a href="#about">About</a>
-            </li>
-            <li>
-              <a href="#projects">Projects</a>
-            </li>
-            <li>
-              <a href="#skills">Skills</a>
-            </li>
-            <li>
-              <a href="#contact">Contact</a>
-            </li>
+            {NAV_LINKS.map((link) => (
+              <li key={link.href}>
+                <a
+                  href={link.href}
+                  className={
+                    activeSection === link.href.slice(1) ? "active" : ""
+                  }
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
           </ul>
         </nav>
-        <ThemeSwitch isLight={isLight} setIsLight={setIsLight} />
+
+        <div className="nav-right">
+          <ThemeSwitch isLight={isLight} setIsLight={setIsLight} />
+
+          {/* Hamburger button — visible on mobile only */}
+          <button
+            className="menu-toggle"
+            onClick={() => setMobileOpen((prev) => !prev)}
+            aria-label="Toggle menu"
+          >
+            <span className={`hamburger ${mobileOpen ? "open" : ""}`}>
+              <span />
+              <span />
+              <span />
+            </span>
+          </button>
+        </div>
       </div>
+
+      {/* Mobile overlay nav */}
+      {mobileOpen && (
+        <nav className="mobile-nav">
+          {NAV_LINKS.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className={activeSection === link.href.slice(1) ? "active" : ""}
+              onClick={handleLinkClick}
+            >
+              {link.label}
+            </a>
+          ))}
+        </nav>
+      )}
     </header>
   );
 };

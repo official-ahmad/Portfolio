@@ -1,16 +1,47 @@
 import React, { useState } from "react";
 
+// ───── REPLACE THIS WITH YOUR OWN WEB3FORMS ACCESS KEY ─────
+// Get a FREE key at: https://web3forms.com  (no sign-up needed)
+const WEB3FORMS_KEY = "YOUR_ACCESS_KEY_HERE";
+
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
   });
+  const [status, setStatus] = useState("idle"); // idle | sending | success | error
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert("Message sent!");
-    setFormData({ name: "", email: "", message: "" });
+    setStatus("sending");
+
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          from_name: "Portfolio Contact Form",
+        }),
+      });
+      const data = await res.json();
+
+      if (data.success) {
+        setStatus("success");
+        setFormData({ name: "", email: "", message: "" });
+        setTimeout(() => setStatus("idle"), 4000);
+      } else {
+        setStatus("error");
+        setTimeout(() => setStatus("idle"), 4000);
+      }
+    } catch {
+      setStatus("error");
+      setTimeout(() => setStatus("idle"), 4000);
+    }
   };
 
   return (
@@ -82,9 +113,30 @@ const Contact = () => {
               }
             ></textarea>
           </div>
-          <button type="submit" className="project-button">
-            Send Message
+          <button
+            type="submit"
+            className="project-button"
+            disabled={status === "sending"}
+          >
+            {status === "sending"
+              ? "Sending..."
+              : status === "success"
+                ? "✓ Sent!"
+                : status === "error"
+                  ? "Failed — try again"
+                  : "Send Message"}
           </button>
+          {status === "success" && (
+            <p
+              style={{
+                color: "var(--ok, #22c55e)",
+                marginTop: "0.75rem",
+                textAlign: "center",
+              }}
+            >
+              Thanks! I'll get back to you soon.
+            </p>
+          )}
         </form>
 
         {/* RIGHT: UPDATED SIDEBAR WITH SOCIALS */}

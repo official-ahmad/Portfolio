@@ -8,15 +8,22 @@ import Contact from "./components/Contact";
 import About from "./components/About";
 import { PROJECTS } from "./data";
 
+const SECTIONS = ["about", "projects", "skills", "contact"];
+
 function App() {
   const [showTopBtn, setShowTopBtn] = useState(false);
   const [filter, setFilter] = useState("All");
-  const [isLight, setIsLight] = useState(false);
+  const [isLight, setIsLight] = useState(() => {
+    return localStorage.getItem("theme") === "light";
+  });
+  const [activeSection, setActiveSection] = useState("");
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const [loaded, setLoaded] = useState(false);
 
-  // Load theme from localStorage
+  // Page load animation
   useEffect(() => {
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme === "light") setIsLight(true);
+    const t = setTimeout(() => setLoaded(true), 100);
+    return () => clearTimeout(t);
   }, []);
 
   // Apply theme to HTML element
@@ -33,13 +40,40 @@ function App() {
   const filteredProjects =
     filter === "All" ? PROJECTS : PROJECTS.filter((p) => p.category === filter);
 
+  // Scroll: show top button + progress bar
   useEffect(() => {
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 400) setShowTopBtn(true);
-      else setShowTopBtn(false);
-    });
+    const handleScroll = () => {
+      setShowTopBtn(window.scrollY > 400);
+      const winScroll = document.documentElement.scrollTop;
+      const height =
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight;
+      setScrollProgress(height > 0 ? (winScroll / height) * 100 : 0);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Active section detection on scroll
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { rootMargin: "-40% 0px -55% 0px" },
+    );
+    SECTIONS.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+    return () => observer.disconnect();
+  }, []);
+
+  // Reveal-on-scroll animation
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -54,8 +88,18 @@ function App() {
   }, [filter]);
 
   return (
-    <>
-      <Navbar isLight={isLight} setIsLight={setIsLight} />
+    <div className={`app-wrapper ${loaded ? "loaded" : ""}`}>
+      {/* Scroll progress bar */}
+      <div
+        className="scroll-progress-bar"
+        style={{ width: `${scrollProgress}%` }}
+      />
+
+      <Navbar
+        isLight={isLight}
+        setIsLight={setIsLight}
+        activeSection={activeSection}
+      />
       <main className="container">
         <div className="reveal">
           <Hero />
@@ -128,18 +172,6 @@ function App() {
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
           className="top-btn"
-          style={{
-            position: "fixed",
-            bottom: "30px",
-            right: "30px",
-            zIndex: 100,
-            padding: "10px 15px",
-            borderRadius: "50%",
-            background: "var(--brand)",
-            color: "white",
-            border: "none",
-            cursor: "pointer",
-          }}
         >
           ↑
         </button>
@@ -153,7 +185,7 @@ function App() {
       >
         © {new Date().getFullYear()} Ahmad Ali — Built with React
       </footer>
-    </>
+    </div>
   );
 }
 
