@@ -49,7 +49,6 @@ export const PROJECTS = [
   },
 ];
 
-// ENSURE THIS PART IS AT THE BOTTOM
 export const SKILLS = [
   { name: "Frontend", tags: "React • HTML • CSS • JS", level: "92%" },
   { name: "Backend", tags: "Node • Express • REST", level: "78%" },

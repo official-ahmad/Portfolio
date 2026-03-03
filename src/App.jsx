@@ -20,13 +20,11 @@ function App() {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [loaded, setLoaded] = useState(false);
 
-  // Page load animation
   useEffect(() => {
     const t = setTimeout(() => setLoaded(true), 100);
     return () => clearTimeout(t);
   }, []);
 
-  // Apply theme to HTML element
   useEffect(() => {
     if (isLight) {
       document.documentElement.classList.add("light");
@@ -40,7 +38,6 @@ function App() {
   const filteredProjects =
     filter === "All" ? PROJECTS : PROJECTS.filter((p) => p.category === filter);
 
-  // Scroll: show top button + progress bar
   useEffect(() => {
     const handleScroll = () => {
       setShowTopBtn(window.scrollY > 400);
@@ -54,7 +51,6 @@ function App() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Active section detection on scroll
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -73,7 +69,6 @@ function App() {
     return () => observer.disconnect();
   }, []);
 
-  // Reveal-on-scroll animation
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -89,7 +84,6 @@ function App() {
 
   return (
     <div className={`app-wrapper ${loaded ? "loaded" : ""}`}>
-      {/* Scroll progress bar */}
       <div
         className="scroll-progress-bar"
         style={{ width: `${scrollProgress}%` }}
@@ -183,7 +177,7 @@ function App() {
           color: "var(--muted)",
         }}
       >
-        © {new Date().getFullYear()} Ahmad Ali — Built with React
+        © {new Date().getFullYear()} official-ahmad — Built with React
       </footer>
     </div>
   );

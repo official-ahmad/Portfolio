@@ -25,7 +25,6 @@ const Navbar = ({ isLight, setIsLight, activeSection }) => {
           </div>
         </div>
 
-        {/* Desktop nav */}
         <nav>
           <ul>
             {NAV_LINKS.map((link) => (
@@ -46,7 +45,6 @@ const Navbar = ({ isLight, setIsLight, activeSection }) => {
         <div className="nav-right">
           <ThemeSwitch isLight={isLight} setIsLight={setIsLight} />
 
-          {/* Hamburger button — visible on mobile only */}
           <button
             className="menu-toggle"
             onClick={() => setMobileOpen((prev) => !prev)}
@@ -61,7 +59,6 @@ const Navbar = ({ isLight, setIsLight, activeSection }) => {
         </div>
       </div>
 
-      {/* Mobile overlay nav */}
       {mobileOpen && (
         <nav className="mobile-nav">
           {NAV_LINKS.map((link) => (

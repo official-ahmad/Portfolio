@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 
-// ───── REPLACE THIS WITH YOUR OWN WEB3FORMS ACCESS KEY ─────
-// Get a FREE key at: https://web3forms.com  (no sign-up needed)
-const WEB3FORMS_KEY = "YOUR_ACCESS_KEY_HERE";
+const WEB3FORMS_KEY = "8fbdfa5f-1785-4739-b4bd-6696facbb3ee";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -10,7 +8,7 @@ const Contact = () => {
     email: "",
     message: "",
   });
-  const [status, setStatus] = useState("idle"); // idle | sending | success | error
+  const [status, setStatus] = useState("idle");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -59,7 +57,6 @@ const Contact = () => {
           gap: "2rem",
         }}
       >
-        {/* LEFT: FORM */}
         <form
           className="hero-card"
           onSubmit={handleSubmit}
@@ -76,7 +73,7 @@ const Contact = () => {
             <input
               type="text"
               className="input"
-              placeholder="Ahmad Ali"
+              placeholder="John Doe"
               required
               value={formData.name}
               onChange={(e) =>
@@ -139,7 +136,6 @@ const Contact = () => {
           )}
         </form>
 
-        {/* RIGHT: UPDATED SIDEBAR WITH SOCIALS */}
         <aside
           className="hero-card"
           style={{
@@ -210,7 +206,7 @@ const Contact = () => {
               </svg>
             </a>
             <a
-              href="https://wa.me/yournumber"
+              href="https://wa.me/923324670292"
               target="_blank"
               rel="noreferrer"
               className="socialContainer containerFour"

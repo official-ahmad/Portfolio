@@ -18,7 +18,6 @@ const ProjectCard = ({ project }) => {
         overflow: "hidden",
       }}
     >
-      {/* 1. IMAGE SECTION */}
       <div
         className="thumb"
         style={{
@@ -51,7 +50,6 @@ const ProjectCard = ({ project }) => {
         )}
       </div>
 
-      {/* 2. CONTENT SECTION */}
       <div style={{ flex: "1 0 auto" }}>
         <h3
           style={{
@@ -74,7 +72,6 @@ const ProjectCard = ({ project }) => {
         </p>
       </div>
 
-      {/* 3. BADGES SECTION */}
       <div
         className="badges"
         style={{
@@ -102,7 +99,6 @@ const ProjectCard = ({ project }) => {
           ))}
       </div>
 
-      {/* 4. THE NEW ANIMATED BUTTON */}
       <div style={{ marginTop: "auto", width: "100%" }}>
         <a
           href={project.link || "#"}

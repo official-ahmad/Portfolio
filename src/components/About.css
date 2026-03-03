@@ -112,7 +112,6 @@
   background: darken(var(--brand), 10%);
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   .about-grid {
     grid-template-columns: 1fr;

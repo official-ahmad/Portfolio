@@ -19,7 +19,6 @@ const Hero = () => {
     let speed = deleting ? 40 : 80;
 
     if (!deleting && charIndex === currentRole.length) {
-      // Pause at full word then start deleting
       speed = 1800;
       const t = setTimeout(() => setDeleting(true), speed);
       return () => clearTimeout(t);
