@@ -176,7 +176,7 @@ const Contact = () => {
 
           <div className="social-card-wrapper">
             <a
-              href="https://instagram.com"
+              href="https://www.instagram.com/dev_protocol?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
               target="_blank"
               rel="noreferrer"
               className="socialContainer containerOne"
@@ -196,7 +196,7 @@ const Contact = () => {
               </svg>
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/muhammad-ahmad-ali-4b24b436a/"
               target="_blank"
               rel="noreferrer"
               className="socialContainer containerThree"
