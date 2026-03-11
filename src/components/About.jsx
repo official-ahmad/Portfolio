@@ -94,7 +94,7 @@ const About = () => {
               Current Role
             </h4>
             <p>
-              <strong>Junior Web Developer / Freelancer</strong>
+              <strong>Web Developer / Freelancer</strong>
             </p>
             <p style={{ color: "var(--muted)", fontSize: "0.9rem" }}>
               Self-Employed • Present
