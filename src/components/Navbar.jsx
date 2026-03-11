@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ThemeSwitch from "./ThemeSwitch";
+import myPhoto from "../assets/image.png";
 
 const NAV_LINKS = [
   { href: "#about", label: "About" },
@@ -17,12 +18,10 @@ const Navbar = ({ isLight, setIsLight, activeSection }) => {
     <header className="nav glass">
       <div className="container nav-inner">
         <div className="brand">
-          <div className="logo">A</div>
-          <div>
-            <strong>Ahmad Ali</strong>
-            <br />
-            <small className="tag">Full‑Stack (MERN)</small>
+          <div className="logo">
+            <img src={myPhoto} alt="Ahmad Ali" />
           </div>
+          <strong>Ahmad Ali</strong>
         </div>
 
         <nav>
