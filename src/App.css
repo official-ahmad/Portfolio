@@ -75,10 +75,15 @@ section{padding:3.2rem 0}
 .card p{margin:.2rem 0 .6rem; color:var(--muted)}
 .card .badges{display:flex; flex-wrap:wrap; gap:.4rem}
 
-.skills{display:grid; grid-template-columns: repeat(12, 1fr); gap:1rem}
-.skill{grid-column: span 6; border:1px solid var(--border); background:var(--bg-soft); padding:1rem; border-radius:16px}
-.meter{height:10px; background:var(--card); border-radius:999px; overflow:hidden; border:1px solid var(--border)}
-.meter > i{display:block; height:100%; background:linear-gradient(90deg, var(--brand), var(--brand-2))}
+.skills-marquee{overflow:hidden; mask:linear-gradient(90deg,transparent,white 12%,white 88%,transparent); -webkit-mask:linear-gradient(90deg,transparent,white 12%,white 88%,transparent)}
+.skills-track{display:flex; gap:1.6rem; width:max-content; animation:marquee 28s linear infinite}
+.skills-track:hover{animation-play-state:paused}
+.skill-item{display:flex; flex-direction:column; align-items:center; gap:.55rem; flex-shrink:0}
+.skill-icon-card{width:90px; height:90px; border-radius:50%; display:grid; place-items:center; border:1px solid var(--border); background:var(--bg-soft); transition:border-color .25s ease, box-shadow .25s ease, background .25s ease; cursor:default}
+.skill-item:hover .skill-icon-card{border-color:var(--icon-color); box-shadow:0 0 22px color-mix(in srgb,var(--icon-color) 45%,transparent),0 8px 24px rgba(0,0,0,.3); background:color-mix(in srgb,var(--icon-color) 12%,var(--bg-soft))}
+.skill-icon-card svg{filter:drop-shadow(0 2px 8px color-mix(in srgb,var(--icon-color) 55%,transparent))}
+.skill-item span{font-size:.78rem; color:var(--muted); font-weight:500; text-align:center}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
 .contact{display:grid; grid-template-columns: 1fr 1fr; gap:1rem}
 .field{display:flex; flex-direction:column; gap:.4rem}
@@ -101,8 +106,7 @@ footer{border-top:1px solid var(--border); padding:1.4rem 0; color:var(--muted)}
 
 @media (max-width: 760px){
   .card{grid-column: span 6}
-  .skill{grid-column: span 12}
-  nav ul{display:none}
+nav ul{display:none}
   .menu-toggle{display:grid; place-items:center; border:1px solid var(--border); background:var(--card); width:44px; height:44px; border-radius:12px}
   .mobile-nav{position:fixed; inset:64px 16px auto; border:1px solid var(--border); background:var(--bg-soft); padding:.6rem; border-radius:14px; box-shadow:var(--shadow); z-index:40}
   .mobile-nav a{display:block; padding:.7rem; border-radius:10px}

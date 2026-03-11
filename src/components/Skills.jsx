@@ -1,55 +1,49 @@
-import React, { useEffect, useRef, useState } from "react";
-import { SKILLS } from "../data";
+import React from "react";
+import {
+  SiReact,
+  SiHtml5,
+  SiCss,
+  SiJavascript,
+  SiNodedotjs,
+  SiExpress,
+  SiMongodb,
+  SiGit,
+  SiGithub,
+} from "react-icons/si";
+import { TbBrandVscode } from "react-icons/tb";
 
-const Skills = () => {
-  const sectionRef = useRef(null);
-  const [visible, setVisible] = useState(false);
+const TECH = [
+  { icon: SiReact, name: "React", color: "#61DBFB" },
+  { icon: SiHtml5, name: "HTML5", color: "#E34F26" },
+  { icon: SiCss, name: "CSS3", color: "#1572B6" },
+  { icon: SiJavascript, name: "JavaScript", color: "#F7DF1E" },
+  { icon: SiNodedotjs, name: "Node.js", color: "#3C873A" },
+  { icon: SiExpress, name: "Express", color: "#aaaaaa" },
+  { icon: SiMongodb, name: "MongoDB", color: "#4DB33D" },
+  { icon: SiGit, name: "Git", color: "#F05032" },
+  { icon: SiGithub, name: "GitHub", color: "#c9c9c9" },
+  { icon: TbBrandVscode, name: "VS Code", color: "#007ACC" },
+];
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.3 },
-    );
-    if (sectionRef.current) observer.observe(sectionRef.current);
-    return () => observer.disconnect();
-  }, []);
-
-  return (
-    <section id="skills" ref={sectionRef}>
-      <div className="section-title">
-        <span className="tag">Skills</span>
-        <h2>What I use</h2>
-      </div>
-      <div className="skills">
-        {SKILLS.map((skill, index) => (
-          <div className="skill" key={index}>
-            <div className="row" style={{ justifyContent: "space-between" }}>
-              <strong>{skill.name}</strong>
-              <span className="tag">{skill.tags}</span>
+const Skills = () => (
+  <section id="skills">
+    <div className="section-title">
+      <span className="tag">Skills</span>
+      <h2>What I use</h2>
+    </div>
+    <div className="skills-marquee">
+      <div className="skills-track">
+        {[...TECH, ...TECH].map(({ icon: Icon, name, color }, i) => (
+          <div className="skill-item" key={`${name}-${i}`} style={{ "--icon-color": color }}>
+            <div className="skill-icon-card">
+              <Icon size={40} color={color} />
             </div>
-            <div className="meter">
-              <i
-                style={{
-                  width: visible ? skill.level : "0%",
-                  display: "block",
-                  height: "100%",
-                  background:
-                    "linear-gradient(90deg, var(--brand), var(--brand-2))",
-                  transition: `width 1.2s ease ${index * 0.2}s`,
-                  borderRadius: "999px",
-                }}
-              />
-            </div>
+            <span>{name}</span>
           </div>
         ))}
       </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);
 
 export default Skills;

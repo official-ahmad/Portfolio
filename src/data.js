@@ -48,10 +48,3 @@ export const PROJECTS = [
     link: "https://imagine-repo.vercel.app/",
   },
 ];
-
-export const SKILLS = [
-  { name: "Frontend", tags: "React • HTML • CSS • JS", level: "92%" },
-  { name: "Backend", tags: "Node • Express • REST", level: "78%" },
-  { name: "Database", tags: "MongoDB • Mongoose", level: "76%" },
-  { name: "Tools", tags: "Git • GitHub • VS Code", level: "82%" },
-];
