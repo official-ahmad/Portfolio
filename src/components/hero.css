@@ -1,6 +1,6 @@
 .hero-blob{
     height: auto;
-    transition: all 0.5s;   
+    transition: all 0.5s;
 }
 .hero-blob:hover{
      transform: scale(1.05);

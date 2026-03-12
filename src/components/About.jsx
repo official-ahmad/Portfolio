@@ -54,17 +54,34 @@ const About = () => {
               padding: "1.5rem",
               marginBottom: "1.5rem",
               borderLeft: "4px solid var(--brand)",
+              display: "flex",
+              alignItems: "center",
+              gap: "1.2rem",
             }}
           >
-            <h4 style={{ color: "var(--brand)", marginBottom: "0.5rem" }}>
-              Education
-            </h4>
-            <p>
-              <strong>Intermediate in Computer Science (ICS)</strong>
-            </p>
-            <p style={{ color: "var(--muted)", fontSize: "0.9rem" }}>
-              Punjab College • 2024 – 2026
-            </p>
+            <img
+              src="/Punjab-College-logo.jpg"
+              alt="Punjab College"
+              style={{
+                width: "52px",
+                height: "52px",
+                borderRadius: "50%",
+                objectFit: "cover",
+                flexShrink: 0,
+                border: "2px solid var(--border)",
+              }}
+            />
+            <div>
+              <h4 style={{ color: "var(--brand)", marginBottom: "0.5rem" }}>
+                Education
+              </h4>
+              <p>
+                <strong>Intermediate in Computer Science (ICS)</strong>
+              </p>
+              <p style={{ color: "var(--muted)", fontSize: "0.9rem" }}>
+                Punjab College • 2024 – 2026
+              </p>
+            </div>
           </div>
 
           <div
@@ -73,32 +90,69 @@ const About = () => {
               padding: "1.5rem",
               marginBottom: "1.5rem",
               borderLeft: "4px solid #a855f7",
+              display: "flex",
+              alignItems: "center",
+              gap: "1.2rem",
             }}
           >
-            <h4 style={{ color: "#a855f7", marginBottom: "0.5rem" }}>
-              Certification
-            </h4>
-            <p>
-              <strong>Full-Stack Web Development Certification</strong>
-            </p>
-            <p style={{ color: "var(--muted)", fontSize: "0.9rem" }}>
-              Ideoversity, Arfa Karim Tower, Lahore • 2025
-            </p>
+            <img
+              src="/Ideoverrsty-logo.png"
+              alt="Ideoversity"
+              style={{
+                width: "52px",
+                height: "52px",
+                borderRadius: "50%",
+                objectFit: "cover",
+                flexShrink: 0,
+                border: "2px solid var(--border)",
+              }}
+            />
+            <div>
+              <h4 style={{ color: "#a855f7", marginBottom: "0.5rem" }}>
+                Certification
+              </h4>
+              <p>
+                <strong>Full-Stack Web Development Certification</strong>
+              </p>
+              <p style={{ color: "var(--muted)", fontSize: "0.9rem" }}>
+                Ideoversity, Arfa Karim Tower, Lahore • 2025
+              </p>
+            </div>
           </div>
 
           <div
             className="hero-card"
-            style={{ padding: "1.5rem", borderLeft: "4px solid #22c55e" }}
+            style={{
+              padding: "1.5rem",
+              borderLeft: "4px solid #22c55e",
+              display: "flex",
+              alignItems: "center",
+              gap: "1.2rem",
+            }}
           >
-            <h4 style={{ color: "#22c55e", marginBottom: "0.5rem" }}>
-              Current Role
-            </h4>
-            <p>
-              <strong>Web Developer / Freelancer</strong>
-            </p>
-            <p style={{ color: "var(--muted)", fontSize: "0.9rem" }}>
-              Self-Employed • Present
-            </p>
+            <img
+              src="/Fiverr-2.jpg"
+              alt="Fiverr"
+              style={{
+                width: "52px",
+                height: "52px",
+                borderRadius: "50%",
+                objectFit: "cover",
+                flexShrink: 0,
+                border: "2px solid var(--border)",
+              }}
+            />
+            <div>
+              <h4 style={{ color: "#22c55e", marginBottom: "0.5rem" }}>
+                Current Role
+              </h4>
+              <p>
+                <strong>Web Developer / Freelancer</strong>
+              </p>
+              <p style={{ color: "var(--muted)", fontSize: "0.9rem" }}>
+                Self-Employed • Present
+              </p>
+            </div>
           </div>
         </div>
       </div>
