@@ -16,14 +16,6 @@ export const PROJECTS = [
     link: "https://client-registry-services.vercel.app/",
   },
   {
-    title: "MERN E‑commerce Store",
-    desc: "A full-stack commerce engine that synchronizes real-time product data using asynchronous API fetching.",
-    tags: ["React", "Node", "Express", "MongoDB"],
-    category: "APIs",
-    image: "/daraz.png",
-    link: "https://daraz-phi.vercel.app/",
-  },
-  {
     title: "Rental Property Management",
     desc: "A full-stack rental management system built to handle property listings and tenant records.",
     tags: ["React", "Node", "Express", "MongoDB"],
@@ -31,6 +23,15 @@ export const PROJECTS = [
     image: "/rental.png",
     link: "https://rental-management-front-end.vercel.app/",
   },
+  {
+    title: "MERN E‑commerce Store",
+    desc: "A full-stack commerce engine that synchronizes real-time product data using asynchronous API fetching.",
+    tags: ["React", "Node", "Express", "MongoDB"],
+    category: "APIs",
+    image: "/daraz.png",
+    link: "https://daraz-phi.vercel.app/",
+  },
+
   {
     title: "News API",
     desc: "A RESTful News API that aggregates real-time headlines from multiple sources.",
