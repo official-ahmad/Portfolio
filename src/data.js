@@ -47,4 +47,28 @@ export const PROJECTS = [
     image: "/imagine.png",
     link: "https://imagine-repo.vercel.app/",
   },
+  {
+    title: "Client Registration API",
+    desc: "A RESTful API for managing client registrations with validation and authentication.",
+    tags: ["Node", "Express", "MongoDB"],
+    category: "Full Stack",
+    image: "/Client.png",
+    link: "https://client-registry-services.vercel.app/",
+  },
+  {
+    title: "Student Management System",
+    desc: "A full-stack application for managing student records and academic performance.",
+    tags: ["React", "Node", "Express", "MongoDB"],
+    category: "Full Stack",
+    image: "/student.png",
+    link: "https://student-grading-front-end.vercel.app/",
+  },
+  {
+    title: "Moto-Bike Tracker API",
+    desc: "A RESTful API for tracking moto-bike locations and movements.",
+    tags: ["Node", "Express", "MongoDB"],
+    category: "Full Stack",
+    image: "/Moto.png",
+    link: "https://moto-bike-tracker-api.vercel.app/",
+  },
 ];
