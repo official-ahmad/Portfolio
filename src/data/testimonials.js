@@ -7,14 +7,14 @@ export const TESTIMONIALS = [
   //   github: "https://github.com/ahmed-khan",
   //   avatar: null,
   // },
-  // {
-  //   name: "Sarah Johnson",
-  //   designation: "Project Manager",
-  //   review:
-  //     "The rental management system exceeded our expectations. Professional, scalable, and delivered on time.",
-  //   github: "https://github.com/sarah-johnson",
-  //   avatar: null,
-  // },
+  {
+    name: "Rida Abid Hussain",
+    designation: "Data Scientist",
+    review:
+      "The rental management system exceeded our expectations. Professional, scalable, and delivered on time.",
+    github: "https://github.com/Rida-Abid-hub",
+    avatar: null,
+  },
   {
     name: "Haider Ali",
     designation: "Backend Engineer",
