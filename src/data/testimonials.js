@@ -17,7 +17,7 @@ export const TESTIMONIALS = [
   },
   {
     name: "Haider Ali",
-    designation: "Backend Engineer",
+    designation: "Full Stack Developer",
     review:
       "Excellent REST API design. The news API implementation shows deep understanding of asynchronous patterns.",
     github: "https://github.com/thehaiderali",
