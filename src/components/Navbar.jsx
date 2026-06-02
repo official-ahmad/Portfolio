@@ -3,10 +3,10 @@ import ThemeSwitch from "./ThemeSwitch";
 import myPhoto from "../assets/image.png";
 
 const NAV_LINKS = [
-  { href: "#about", label: "About" },
   { href: "#projects", label: "Projects" },
   { href: "#skills", label: "Skills" },
   { href: "#contact", label: "Contact" },
+  { href: "#testimonials", label: "Testimonials" },
 ];
 
 const Navbar = ({ isLight, setIsLight, activeSection }) => {
