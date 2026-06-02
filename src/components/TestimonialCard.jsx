@@ -31,22 +31,36 @@ const TestimonialCard = ({ testimonial }) => {
 
   // Check if light theme
   const isLightTheme = document.documentElement.classList.contains("light");
-  const textColor = isLightTheme ? "rgba(26, 31, 46, 0.95)" : "rgba(255, 255, 255, 0.9)";
-  const mutedColor = isLightTheme ? "rgba(90, 99, 112, 0.7)" : "rgba(255, 255, 255, 0.5)";
+  const textColor = isLightTheme
+    ? "rgba(26, 31, 46, 0.95)"
+    : "rgba(255, 255, 255, 0.9)";
+  const mutedColor = isLightTheme
+    ? "rgba(90, 99, 112, 0.7)"
+    : "rgba(255, 255, 255, 0.5)";
   const bgGradient = isLightTheme
     ? "linear-gradient(135deg, rgba(255,255,255,0.6), rgba(255,255,255,0.4))"
     : "linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02))";
-  const borderColor = isLightTheme ? "rgba(26, 31, 46, 0.1)" : "rgba(255,255,255,0.1)";
+  const borderColor = isLightTheme
+    ? "rgba(26, 31, 46, 0.1)"
+    : "rgba(255, 255, 255, 0.1)";
   const shadowColor = isLightTheme
-    ? "0 8px 32px rgba(0, 0, 0, 0.06), inset 0 1px 2px rgba(255, 255, 255, 0.8), 0 0 1px rgba(26, 31, 46, 0.1)"
-    : "0 8px 32px rgba(0, 0, 0, 0.1), inset 0 1px 2px rgba(255, 255, 255, 0.2), 0 0 1px rgba(14, 165, 233, 0.2)";
-  const quoteColor = isLightTheme ? "rgba(26, 31, 46, 0.15)" : "rgba(14, 165, 233, 0.3)";
+    ? "0 8px 32px rgba(0, 0, 0, 0.06), inset 0 1px 2px rgba(255, 255, 255, 0.84), 0 0 1px rgba(26, 31, 46, 0.1)"
+    : "0 8px 32px rgba(0, 0, 0, 0.15), inset 0 1px 2px rgba(255, 255, 255, 0.15)";
+  const quoteColor = isLightTheme
+    ? "rgba(26, 31, 46, 0.12)"
+    : "rgba(255, 255, 255, 0.12)";
   const dividerBg = isLightTheme
-    ? "linear-gradient(90deg, transparent, rgba(26,31,46,0.1), transparent)"
-    : "linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent)";
-  const githubBg = isLightTheme ? "rgba(26, 31, 46, 0.04)" : "rgba(255, 255, 255, 0.08)";
-  const githubBorder = isLightTheme ? "rgba(26, 31, 46, 0.08)" : "rgba(255, 255, 255, 0.12)";
-  const githubColor = isLightTheme ? "rgba(26, 31, 46, 0.6)" : "rgba(255, 255, 255, 0.7)";
+    ? "linear-gradient(90deg, transparent, rgba(26,31,46,0.08), transparent)"
+    : "linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent)";
+  const githubBg = isLightTheme
+    ? "rgba(26, 31, 46, 0.04)"
+    : "rgba(255, 255, 255, 0.05)";
+  const githubBorder = isLightTheme
+    ? "rgba(26, 31, 46, 0.08)"
+    : "rgba(255, 255, 255, 0.1)";
+  const githubColor = isLightTheme
+    ? "rgba(26, 31, 46, 0.6)"
+    : "rgba(255, 255, 255, 0.6)";
 
   return (
     <article
@@ -54,11 +68,12 @@ const TestimonialCard = ({ testimonial }) => {
       style={{
         display: "flex",
         flexDirection: "column",
-        height: "420px",
-        minWidth: "340px",
-        maxWidth: "340px",
+        // Dono side ka andruni gap maintain rakhne ke liye precise equal padding
+        padding: "1.75rem",
+        width: "100%",
+        minWidth: "300px",
+        maxWidth: "350px",
         boxSizing: "border-box",
-        padding: "2rem",
         background: bgGradient,
         backdropFilter: "blur(16px)",
         WebkitBackdropFilter: "blur(16px)",
@@ -71,15 +86,17 @@ const TestimonialCard = ({ testimonial }) => {
         cursor: "pointer",
       }}
       onMouseEnter={(e) => {
-        e.currentTarget.style.transform = "translateY(-8px) scale(1.02)";
+        e.currentTarget.style.transform = "translateY(-6px)";
         const hoverShadow = isLightTheme
-          ? "0 20px 48px rgba(0, 0, 0, 0.12), inset 0 1px 4px rgba(255, 255, 255, 1), 0 0 20px rgba(26, 31, 46, 0.2)"
-          : "0 20px 48px rgba(0, 0, 0, 0.25), inset 0 1px 4px rgba(255, 255, 255, 0.3), 0 0 20px rgba(14, 165, 233, 0.4)";
+          ? "0 16px 36px rgba(0, 0, 0, 0.1), inset 0 1px 3px rgba(255, 255, 255, 1)"
+          : `0 16px 36px rgba(0, 0, 0, 0.25), inset 0 1px 2px rgba(255, 255, 255, 0.2), 0 0 12px ${avatarColor}20`;
         e.currentTarget.style.boxShadow = hoverShadow;
-        e.currentTarget.style.borderColor = isLightTheme ? "rgba(26, 31, 46, 0.15)" : "rgba(255, 255, 255, 0.2)";
+        e.currentTarget.style.borderColor = isLightTheme
+          ? "rgba(26, 31, 46, 0.15)"
+          : "rgba(255, 255, 255, 0.2)";
       }}
       onMouseLeave={(e) => {
-        e.currentTarget.style.transform = "translateY(0) scale(1)";
+        e.currentTarget.style.transform = "translateY(0)";
         e.currentTarget.style.boxShadow = shadowColor;
         e.currentTarget.style.borderColor = borderColor;
       }}
@@ -88,14 +105,14 @@ const TestimonialCard = ({ testimonial }) => {
       <div
         style={{
           position: "absolute",
-          top: "-40px",
-          right: "-40px",
-          width: "150px",
-          height: "150px",
+          top: "-50px",
+          right: "-50px",
+          width: "140px",
+          height: "140px",
           borderRadius: "50%",
           background: `radial-gradient(circle, ${avatarColor}, transparent)`,
-          filter: "blur(50px)",
-          opacity: isLightTheme ? 0.1 : 0.15,
+          filter: "blur(45px)",
+          opacity: isLightTheme ? 0.08 : 0.12,
           pointerEvents: "none",
         }}
       />
@@ -103,11 +120,11 @@ const TestimonialCard = ({ testimonial }) => {
       {/* Quote Icon */}
       <div
         style={{
-          fontSize: "3.5rem",
+          fontSize: "3rem",
           fontFamily: "Georgia, serif",
           color: quoteColor,
           position: "absolute",
-          top: "-15px",
+          top: "-10px",
           left: "15px",
           lineHeight: "1",
           pointerEvents: "none",
@@ -117,34 +134,29 @@ const TestimonialCard = ({ testimonial }) => {
         "
       </div>
 
-      {/* Review Text */}
-      <p
-        style={{
-          fontSize: "0.95rem",
-          lineHeight: "1.75",
-          color: textColor,
-          marginBottom: "1.8rem",
-          flex: "0 0 auto",
-          height: "140px",
-          overflow: "hidden",
-          fontStyle: "italic",
-          fontWeight: "400",
-          position: "relative",
-          zIndex: 1,
-        }}
-      >
-        {testimonial.review}
-      </p>
+      {/* Review Text Area - Auto wrapping without strict height forces */}
+      <div style={{ position: "relative", zIndex: 1, width: "100%" }}>
+        <p
+          style={{
+            fontSize: "0.92rem",
+            lineHeight: "1.65",
+            color: textColor,
+            fontStyle: "italic",
+            fontWeight: "400",
+            margin: "0 0 1.2rem 0",
+          }}
+        >
+          {testimonial.review}
+        </p>
+      </div>
 
-      {/* Spacer */}
-      <div style={{ flex: "1 1 auto" }} />
-
-      {/* Gradient Divider */}
+      {/* Symmetric Divider */}
       <div
         style={{
           height: "1px",
           background: dividerBg,
-          margin: "1.2rem 0 1.5rem 0",
+          marginBottom: "1.2rem",
+          width: "100%",
         }}
       />
 
@@ -153,31 +165,32 @@ const TestimonialCard = ({ testimonial }) => {
         style={{
           display: "flex",
           alignItems: "center",
-          gap: "1rem",
+          gap: "0.85rem",
           position: "relative",
           zIndex: 1,
-          flex: "0 0 auto",
+          marginTop: "auto", // Elements push down naturally
         }}
       >
         {/* Avatar Circle */}
         <div
           style={{
-            width: "48px",
-            height: "48px",
+            width: "42px",
+            height: "42px",
             borderRadius: "50%",
-            background: testimonial.avatar ? `url(${testimonial.avatar})` : avatarColor,
+            background: testimonial.avatar
+              ? `url(${testimonial.avatar})`
+              : avatarColor,
             backgroundSize: "cover",
             backgroundPosition: "center",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
             flexShrink: 0,
-            fontSize: "0.95rem",
+            fontSize: "0.85rem",
             fontWeight: "700",
             color: "#ffffff",
-            boxShadow: `0 4px 16px ${avatarColor}40, inset 0 1px 2px rgba(255,255,255,0.3)`,
-            border: "2px solid rgba(255, 255, 255, 0.2)",
-            letterSpacing: "-0.5px",
+            boxShadow: "0 4px 10px rgba(0,0,0,0.15)",
+            border: "2px solid rgba(255, 255, 255, 0.15)",
           }}
         >
           {!testimonial.avatar && initials}
@@ -187,11 +200,10 @@ const TestimonialCard = ({ testimonial }) => {
         <div style={{ flex: "1", minWidth: 0 }}>
           <h4
             style={{
-              fontWeight: "700",
-              fontSize: "0.95rem",
+              fontWeight: "600",
+              fontSize: "0.9rem",
               color: textColor,
-              margin: "0 0 0.2rem 0",
-              letterSpacing: "0.2px",
+              margin: "0 0 0.15rem 0",
               textOverflow: "ellipsis",
               overflow: "hidden",
               whiteSpace: "nowrap",
@@ -225,9 +237,9 @@ const TestimonialCard = ({ testimonial }) => {
               display: "inline-flex",
               alignItems: "center",
               justifyContent: "center",
-              width: "36px",
-              height: "36px",
-              borderRadius: "10px",
+              width: "32px",
+              height: "32px",
+              borderRadius: "8px",
               background: githubBg,
               border: `1px solid ${githubBorder}`,
               transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
@@ -237,28 +249,26 @@ const TestimonialCard = ({ testimonial }) => {
             }}
             onMouseEnter={(e) => {
               e.currentTarget.style.background = isLightTheme
-                ? "rgba(26, 31, 46, 0.12)"
-                : "rgba(14, 165, 233, 0.25)";
+                ? "rgba(26, 31, 46, 0.08)"
+                : "rgba(255, 255, 255, 0.15)";
               e.currentTarget.style.borderColor = isLightTheme
-                ? "rgba(26, 31, 46, 0.3)"
-                : "rgba(14, 165, 233, 0.6)";
-              e.currentTarget.style.color = isLightTheme ? "rgba(26, 31, 46, 0.9)" : "#ffffff";
-              e.currentTarget.style.transform = "scale(1.2) translateY(-2px)";
-              e.currentTarget.style.boxShadow = isLightTheme
-                ? "0 8px 20px rgba(26, 31, 46, 0.2)"
-                : "0 8px 20px rgba(14, 165, 233, 0.4)";
+                ? "rgba(26, 31, 46, 0.2)"
+                : "rgba(255, 255, 255, 0.3)";
+              e.currentTarget.style.color = isLightTheme
+                ? "rgba(26, 31, 46, 0.9)"
+                : "#ffffff";
+              e.currentTarget.style.transform = "scale(1.08)";
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.background = githubBg;
               e.currentTarget.style.borderColor = githubBorder;
               e.currentTarget.style.color = githubColor;
-              e.currentTarget.style.transform = "scale(1) translateY(0)";
-              e.currentTarget.style.boxShadow = "none";
+              e.currentTarget.style.transform = "scale(1)";
             }}
           >
             <svg
-              width="18"
-              height="18"
+              width="16"
+              height="16"
               viewBox="0 0 24 24"
               fill="currentColor"
               style={{ pointerEvents: "none" }}
