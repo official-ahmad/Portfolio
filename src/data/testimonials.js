@@ -8,7 +8,7 @@ export const TESTIMONIALS = [
   //   avatar: null,
   // },
   {
-    name: "Rida Abid Hussain",
+    name: "Rida Abid",
     designation: "Data Scientist",
     review:
       "The rental management system exceeded our expectations. Professional, scalable, and delivered on time.",
