@@ -17,10 +17,10 @@
 }
 
 :root.light{
-  --bg: #f8fafc;
+  --bg: #f5f6f9;
   --bg-soft: #ffffff;
-  --text: #0f172a;
-  --muted: #475569;
+  --text: #1a1f2e;
+  --muted: #5a6370;
   --card: rgba(15,23,42,0.04);
   --border: rgba(15,23,42,.12);
   --shadow: 0 10px 30px rgba(2,6,23,.08);
