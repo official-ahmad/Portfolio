@@ -7,6 +7,7 @@ import Skills from "./components/Skills";
 import Contact from "./components/Contact";
 import About from "./components/About";
 import { PROJECTS } from "./data";
+import Testimonials from "./components/Testimonials";
 
 const SECTIONS = ["about", "projects", "skills", "contact"];
 
@@ -154,10 +155,14 @@ function App() {
               </p>
             )}
           </div>
+          <div className="reveal">
+            <Testimonials />
+          </div>
         </section>
         <div className="reveal">
           <Skills />
         </div>
+
         <div className="reveal">
           <Contact />
         </div>

@@ -21,7 +21,7 @@ export const PROJECTS = [
     tags: ["React", "Node", "Express", "MongoDB"],
     category: "Full Stack",
     image: "/rental.png",
-    link: "https://rental-management-front-end.vercel.app/",
+    link: "https://www.rentify.software/",
   },
   {
     title: "MERN E‑commerce Store",
