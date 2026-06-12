@@ -79,7 +79,7 @@ const About = () => {
                 <strong>Intermediate in Computer Science (ICS)</strong>
               </p>
               <p style={{ color: "var(--muted)", fontSize: "0.9rem" }}>
-                Punjab College • 2024 – 2026
+                Punjab College • 2022 – 2024
               </p>
             </div>
           </div>
@@ -115,7 +115,7 @@ const About = () => {
                 <strong>Full-Stack Web Development Certification</strong>
               </p>
               <p style={{ color: "var(--muted)", fontSize: "0.9rem" }}>
-                Ideoversity, Arfa Karim Tower, Lahore • 2025
+                Ideoversity, Arfa Karim Tower, Lahore • 2024
               </p>
             </div>
           </div>
