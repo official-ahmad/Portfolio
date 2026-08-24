@@ -53,6 +53,42 @@ const About = () => {
             style={{
               padding: "1.5rem",
               marginBottom: "1.5rem",
+              borderLeft: "4px solid #0ea5a4",
+              display: "flex",
+              alignItems: "center",
+              gap: "1.2rem",
+            }}
+          >
+            <img
+              src="/Air.jpg"
+              alt="Air University"
+              style={{
+                width: "52px",
+                height: "52px",
+                borderRadius: "50%",
+                objectFit: "cover",
+                flexShrink: 0,
+                border: "2px solid var(--border)",
+              }}
+            />
+            <div>
+              <h4 style={{ color: "#0ea5a4", marginBottom: "0.5rem" }}>
+                Education
+              </h4>
+              <p>
+                <strong>Bachelor of Science — Computer Science</strong>
+              </p>
+              <p style={{ color: "var(--muted)", fontSize: "0.9rem" }}>
+                Air University Islamabad • 2026 – 2030
+              </p>
+            </div>
+          </div>
+
+          <div
+            className="hero-card"
+            style={{
+              padding: "1.5rem",
+              marginBottom: "1.5rem",
               borderLeft: "4px solid var(--brand)",
               display: "flex",
               alignItems: "center",
