@@ -20,7 +20,7 @@ export const PROJECTS = [
     desc: "A full-stack rental management system built to handle property listings and tenant records.",
     tags: ["React", "Node", "Express", "MongoDB"],
     category: "Full Stack",
-    image: "/rental(2).png",
+    image: "/rentify.png",
     link: "https://www.rentify.software/",
   },
   {
