@@ -1,5 +1,13 @@
 export const PROJECTS = [
   {
+    title: "Rental Property Management",
+    desc: "A full-stack rental management system built to handle property listings and tenant records.",
+    tags: ["React", "Node", "Express", "MongoDB"],
+    category: "Full Stack",
+    image: "/rentify.png",
+    link: "https://www.rentify.software/",
+  },
+  {
     title: "Student Management System",
     desc: "A full-stack application for managing student records and academic performance.",
     tags: ["React", "Node", "Express", "MongoDB"],
@@ -15,14 +23,7 @@ export const PROJECTS = [
     image: "/Client.png",
     link: "https://client-registry-services.vercel.app/",
   },
-  {
-    title: "Rental Property Management",
-    desc: "A full-stack rental management system built to handle property listings and tenant records.",
-    tags: ["React", "Node", "Express", "MongoDB"],
-    category: "Full Stack",
-    image: "/rentify.png",
-    link: "https://www.rentify.software/",
-  },
+
   {
     title: "MERN E‑commerce Store",
     desc: "A full-stack commerce engine that synchronizes real-time product data using asynchronous API fetching.",
